@@ -296,7 +296,7 @@ body {
 .ball {
   position: absolute;
   left: 50%;
-  bottom: 14%;
+  top: 140%;
   width: 34px;
   height: 34px;
   border-radius: 50%;
