@@ -20,6 +20,7 @@
   const shotCountEl = document.getElementById("shot-count");
   const scoreCountEl = document.getElementById("score-count");
   const overlayEl = document.getElementById("overlay");
+  const overlayResultEl = document.getElementById("overlay-result");
   const overlayTitleEl = document.getElementById("overlay-title");
   const overlayScoreEl = document.getElementById("overlay-score");
   const overlayBestEl = document.getElementById("overlay-best");
@@ -356,11 +357,18 @@
     overlayTitleEl.textContent = "Game Over";
     overlayScoreEl.textContent = `You scored ${state.score} out of ${TOTAL_SHOTS}`;
     actionBtn.textContent = "Play again";
+
+    const won = state.score >= TOTAL_SHOTS;
+    overlayResultEl.textContent = won ? "You won" : "You lost";
+    overlayResultEl.classList.remove("won", "lost");
+    overlayResultEl.classList.add("visible", won ? "won" : "lost");
+
     overlayEl.classList.add("visible");
   }
 
   function showStartScreen() {
     renderStats();
+    overlayResultEl.classList.remove("visible", "won", "lost");
     overlayTitleEl.textContent = "Penalty Shootout";
     overlayScoreEl.textContent = "Score as many as you can in 5 shots!";
     actionBtn.textContent = "Play";

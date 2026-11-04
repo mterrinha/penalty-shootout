@@ -362,6 +362,29 @@ body {
   font-size: 1.4rem;
 }
 
+.result-banner {
+  display: none;
+  margin: 0 0 10px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.result-banner.visible {
+  display: block;
+}
+
+.result-banner.won {
+  color: #d4af37;
+  text-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
+}
+
+.result-banner.lost {
+  color: var(--save-red);
+  text-shadow: 0 2px 6px rgba(230, 57, 70, 0.3);
+}
+
 .overlay-card p {
   margin: 0 0 20px;
   font-size: 1.05rem;
