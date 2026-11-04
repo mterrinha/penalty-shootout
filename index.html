@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Penalty Shootout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hud">
+      <div class="hud-left">
+        <button class="pause-btn" id="pause-btn" aria-label="Pause"></button>
+        <div class="hud-item">
+          <span class="hud-label">Shot</span>
+          <span id="shot-count">1 / 5</span>
+        </div>
+      </div>
+      <h1 class="title">Penalty Shootout</h1>
+      <div class="hud-item">
+        <span class="hud-label">Score</span>
+        <span id="score-count">0</span>
+      </div>
+    </header>
+
+    <main class="pitch">
+      <div class="goal-wrap">
+        <div class="net"></div>
+        <div class="goal" id="goal">
+          <div class="post post-left"></div>
+          <div class="post post-right"></div>
+          <div class="post post-top"></div>
+
+          <button class="zone" data-zone="top-left" aria-label="Top left"></button>
+          <button class="zone" data-zone="top-center" aria-label="Top center"></button>
+          <button class="zone" data-zone="top-right" aria-label="Top right"></button>
+          <button class="zone" data-zone="bottom-left" aria-label="Bottom left"></button>
+          <button class="zone" data-zone="bottom-center" aria-label="Bottom center"></button>
+          <button class="zone" data-zone="bottom-right" aria-label="Bottom right"></button>
+
+          <div class="keeper" id="keeper">
+            <div class="keeper-body"></div>
+            <div class="keeper-arm arm-left"></div>
+            <div class="keeper-arm arm-right"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ball" id="ball"></div>
+
+      <div class="message" id="message"></div>
+    </main>
+
+    <div class="overlay visible" id="overlay">
+      <div class="overlay-card">
+        <h2 id="overlay-title">Penalty Shootout</h2>
+        <p id="overlay-score"></p>
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-label">Best score</span>
+            <span class="stat-value" id="overlay-best">0 / 5</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Daily streak</span>
+            <span class="stat-value" id="overlay-streak">0 days</span>
+          </div>
+        </div>
+        <button class="btn" id="action-btn">Play</button>
+        <button class="btn-link" id="stats-btn">Stats</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="stats-overlay">
+      <div class="overlay-card stats-card">
+        <h2>Stats</h2>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-label">Games started</span>
+            <span class="stat-value" id="stat-games-started">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Completion rate</span>
+            <span class="stat-value" id="stat-completion-rate">0%</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Avg score</span>
+            <span class="stat-value" id="stat-avg-score">0.0 / 5</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Keeper difficulty</span>
+            <span class="stat-value" id="stat-keeper-difficulty">17%</span>
+          </div>
+        </div>
+
+        <h3 class="chart-title">Goal rate by zone</h3>
+        <div class="bar-chart" id="zone-chart"></div>
+
+        <button class="btn" id="stats-back-btn">Back</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="pause-overlay">
+      <div class="overlay-card">
+        <h2>Paused</h2>
+
+        <p class="difficulty-label">Keeper difficulty</p>
+        <div class="difficulty-toggle" id="difficulty-toggle">
+          <button class="diff-btn" data-difficulty="easy">Easy</button>
+          <button class="diff-btn" data-difficulty="hard">Hard</button>
+        </div>
+        <p class="difficulty-desc" id="difficulty-desc"></p>
+
+        <button class="btn" id="resume-btn">Resume</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
