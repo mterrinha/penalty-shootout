@@ -21,6 +21,7 @@
   const scoreCountEl = document.getElementById("score-count");
   const overlayEl = document.getElementById("overlay");
   const overlayResultEl = document.getElementById("overlay-result");
+  const overlayResultTextEl = document.getElementById("overlay-result-text");
   const overlayTitleEl = document.getElementById("overlay-title");
   const overlayScoreEl = document.getElementById("overlay-score");
   const overlayBestEl = document.getElementById("overlay-best");
@@ -359,7 +360,7 @@
     actionBtn.textContent = "Play again";
 
     const won = state.score >= TOTAL_SHOTS;
-    overlayResultEl.textContent = won ? "You won" : "You lost";
+    overlayResultTextEl.textContent = won ? "YOU WON" : "YOU LOST";
     overlayResultEl.classList.remove("won", "lost");
     overlayResultEl.classList.add("visible", won ? "won" : "lost");
 
